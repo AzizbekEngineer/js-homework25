@@ -1,8 +1,7 @@
 const API_URL = 'https://dummyjson.com/users'
 const wrapper = document.querySelector('.wrapper')
 const loading = document.querySelector('.loading')
-const leanMore = document.querySelector('#learn')
-console.log(leanMore);
+
 const module = document.querySelector('.module')
 async function fetchUsers(URL) {
     let data = await fetch(URL, {
@@ -21,7 +20,7 @@ fetchUsers(API_URL)
 function createUser(data) {
     console.log(data.users);
     let cards = ''
-    data.users.slice(0, 10).forEach(user => {
+    data.users.forEach(user => {
         cards += `
                 <div class="card">
                     <div class="card__img">
@@ -29,32 +28,18 @@ function createUser(data) {
                     </div>
                     <div class="card__info">
                         <h3>FirstName:${user.firstName}</h3>
-                        <h3>lastName:${user.lastName}</h3>
+                        <h3>LastName:${user.lastName}</h3>
                         <p class = "desc">Address: ${user.address.address + ' ' + user.address.city}</p>
                         <p>Email:${user.email}</p>
                         <p class = "desc">University:${user.university}</p>
                         <p>Age:${user.age}</p>
-                        <button class="learn__more btn" id="learn" type="button">Learn more</button>
-                        <div class="module">
-                            <div class="close__btn">
-                                <button class="close__info btn">Close info</button>
-                            </div>
-                            <div class="module__infos">
-                                <ul class = "module__info">
-                                    <li><p class = "desc">Address: ${user.address.address + ' ' + user.address.city}</p></li>
-                                    <li> <p>Email:${user.email}</p></li>
-                                    <li><p class = "desc">University:${user.university}</p></li>
-                                    <li><p>Age:${user.age}</p></li>
-                                    <li>BirthDate:${user.birthDate}</li>
-                                    <li>Phone:${user.birthDate}</li>
-                                    <li>CardNumber:${user.bank.cardNumber}</li>
-                                    <li class = "desc">UserAgent:${user.userAgent}</li>
-                                    <li>Password:${user.password}</li>
-                                    <li>Height:${user.height}</li>
-                                    <li>Weight:${user.weight}</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <p>BirthDate:${user.birthDate}</p>
+                        <p>Phone:${user.birthDate}</p>
+                        <p>CardNumber:${user.bank.cardNumber}</p>
+                        <p class = "desc">UserAgent:${user.userAgent}</p>
+                        <p>Password:${user.password}</p>
+                        <p>Height:${user.height}</p>
+                        <p>Weight:${user.weight}</p>
                     </div>
                 </div>
         `
@@ -84,4 +69,5 @@ leanMore.addEventListener('click', function () {
     console.log('b');
 })
 
-
+const leanMore = document.querySelector('#learn')
+console.log(leanMore);
